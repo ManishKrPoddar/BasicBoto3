@@ -1,0 +1,18 @@
+import boto3
+
+def getSession():
+    PROFILE = raw_input("Enter Profile Name :")
+    try :
+        session = boto3.Session(profile_name=PROFILE)
+    except Exception,e :
+        print str(e)
+    return session
+
+def connectToSMS(session):
+    try :
+        smsClient=session.client("sms")
+    except Exception,e :
+        print str(e)
+    return smsClient
+    
+    
